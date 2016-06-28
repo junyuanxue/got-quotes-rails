@@ -1,4 +1,6 @@
 class QuotesController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+
   def index
     render json: Quote.all.shuffle[0]
   end

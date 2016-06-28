@@ -15,6 +15,17 @@ describe 'quotes API' do
       expect(quote_data['content']).to eq quote.content
       expect(quote_data['character']).to eq quote.character
     end
+
+    it 'returns a quote with a character query' do
+      tyrions_quote = FactoryGirl.create(:quote, character: 'Tyrion')
+      get '/quotes?character=Tyrion'
+
+      expect(response.status).to eq 200
+
+      quote_data = JSON.parse(response.body)
+      expect(quote_data['content']).to eq tyrions_quote.content
+      expect(quote_data['character']).to eq 'Tyrion'
+    end
   end
 
   describe 'POST /quotes' do
