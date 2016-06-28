@@ -17,4 +17,17 @@ describe 'quotes API' do
     end
   end
 
+  describe 'POST /quotes' do
+    it 'creates a new quote' do
+      new_quote = FactoryGirl.build(:quote)
+      post '/quotes',
+           set_quote_params(new_quote.content,
+                            new_quote.character),
+           request_headers
+
+      expect(response.status).to eq 200
+      expect(Quote.last.content).to eq new_quote.content
+      expect(Quote.last.character).to eq new_quote.character
+    end
+  end
 end

@@ -9,6 +9,8 @@ require 'capybara/rails'
 require 'database_cleaner'
 require 'pry'
 
+require 'requests/request_helper'
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -33,7 +35,7 @@ ActiveRecord::Migration.maintain_test_schema!
 DatabaseCleaner.strategy = :truncation
 
 RSpec.configure do |config|
-  
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
