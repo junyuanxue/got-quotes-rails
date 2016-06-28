@@ -1,4 +1,4 @@
-# Game of Thrones Generator
+# Game of Thrones Quotes Generator
 
 ## About :crown:
 
