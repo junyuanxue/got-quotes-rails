@@ -6,7 +6,7 @@ This is the server for my React web app [Game of Thrones Quotes Generator](https
 
 One might ask since there is a [GoT Quotes API](https://github.com/wsizoo/game-of-thrones-quotes) already, why am I building another? Well, this one would allow a user to add more quotes. But I think the main reason is I miss Rails and TDD.
 
-## To use GoT Quotes Generator :speech_balloon:
+## To run the server :speech_balloon:
 
 Clone this repo and install dependencies:
 ```
