@@ -8,6 +8,26 @@ One might ask since there is a [GoT Quotes API](https://github.com/wsizoo/game-o
 
 ## To use GoT Quotes Generator :speech_balloon:
 
+Clone this repo and install dependencies:
+```
+$ git clone https://github.com/junyuanxue/got-quotes-rails.git
+$ cd got-quotes-rails
+$ bundle
+```
+Create database, load database schema and run the server:
+```
+$ rails db:setup
+$ rails s
+```
+
+## Testing :white_check_mark:
+
+This project was test-driven using RSpec-Capybara.
+
+To run all the tests:
+```
+$ rspec
+```
 
 ## Tools :wrench:
 * Ruby on Rails
