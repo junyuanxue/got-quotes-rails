@@ -34,7 +34,6 @@ $ rspec
 * RSpec-Capybara
 * Factory Girl
 * Faker
-* [GoT Quotes API](https://github.com/wsizoo/game-of-thrones-quotes)
 
 ## Author :cat:
 Junyuan Xue
