@@ -2,8 +2,12 @@ class QuotesController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def index
-    p character = params['character']
-    render json: Quote.all.shuffle[0]
+    character = params['character']
+    if character
+      render json: Quote.filter(character).shuffle[0]
+    else
+      render json: Quote.all.shuffle[0]
+    end
   end
 
   def create

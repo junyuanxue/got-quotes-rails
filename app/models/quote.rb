@@ -2,7 +2,7 @@ class Quote < ActiveRecord::Base
 
   def self.filter(query)
     character = find_character(query)
-    Quote.where(character: character).shuffle[0]
+    Quote.where(character: character)
   end
 
   private
