@@ -11,6 +11,7 @@ require 'pry'
 require 'webmock/rspec'
 
 require 'requests/request_helper'
+require_relative '../lib/ApiClient'
 
 WebMock.disable_net_connect!(:allow_localhost => true)
 
