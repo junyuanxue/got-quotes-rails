@@ -8,8 +8,11 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'database_cleaner'
 require 'pry'
+require 'webmock/rspec'
 
 require 'requests/request_helper'
+
+WebMock.disable_net_connect!(:allow_localhost => true)
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
