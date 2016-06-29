@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'ApiCall' do
+describe 'ApiClient' do
   before do
     data = '{
       "quote": "I drink and I know things.",
@@ -10,8 +10,8 @@ describe 'ApiCall' do
   end
 
   it 'fetches a quote' do
-    apiCall = ApiCall.new
-    response = apiCall.getQuote
+    apiClient = ApiClient.new
+    response = apiClient.getQuote
     expect(response).to eq data
   end
 end
