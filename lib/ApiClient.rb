@@ -1,3 +1,5 @@
+require 'json'
+
 class ApiClient
   include HTTParty
   BASE_URI = 'https://got-quotes.herokuapp.com'
@@ -6,6 +8,19 @@ class ApiClient
   end
 
   def getQuote()
-    self.class.get(BASE_URI + '/quotes')
+    response = self.class.get(BASE_URI + '/quotes')
+    parse_data(response.parsed_response)
+  end
+
+  private
+
+  def parse_data(data)
+    json_data = JSON.parse(data)
+    {
+      'quote': {
+        'content': json_data['quote'],
+        'character': json_data['character']
+      }
+    }
   end
 end

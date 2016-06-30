@@ -10,16 +10,16 @@ class QuotesController < ApplicationController
     else
       render json: Quote.all.shuffle[0]
     end
-    # quote = ApiClient.new.getQuote()
-    # render json: quote
   end
 
   def new
   end
 
   def create
-    quote = Quote.new(quote_params)
-    render json: quote if quote.save
+    quote = ApiClient.new.getQuote()
+    p quote
+    # quote = Quote.new(quote_params)
+    # render json: quote if quote.save
   end
 
   private

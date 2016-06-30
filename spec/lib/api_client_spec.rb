@@ -10,6 +10,12 @@ describe 'ApiClient' do
   it 'fetches a quote' do
     apiClient = ApiClient.new
     response = apiClient.getQuote
-    expect(response.parsed_response).to eq data
+    quote = {
+      'quote': {
+        'content': 'I drink and I know things.',
+        'character': 'Tyrion'
+      }
+    }
+    expect(response).to eq quote
   end
 end
