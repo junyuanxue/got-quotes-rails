@@ -7,17 +7,17 @@ class ApiClient
 
   def get_quote()
     response = self.class.get(BASE_URI + '/quotes')
-    parse_data(response.parsed_response)
+    response.parsed_response
   end
 
-  private
-
-  def parse_data(data)
-    {
-      'quote': {
-        'content': data['quote'],
-        'character': data['character']
-      }
-    }
-  end
+  # private
+  #
+  # def parse_data(data)
+  #   {
+  #     'quote': {
+  #       'content': data['quote'],
+  #       'character': data['character']
+  #     }
+  #   }
+  # end
 end
