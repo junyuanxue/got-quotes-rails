@@ -1,3 +1,5 @@
+require_relative '../../lib/ApiClient'
+
 class QuotesController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
@@ -8,6 +10,8 @@ class QuotesController < ApplicationController
     else
       render json: Quote.all.shuffle[0]
     end
+    # quote = ApiClient.new.getQuote()
+    # render json: quote
   end
 
   def create
