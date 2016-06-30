@@ -17,4 +17,15 @@ describe Quote, type: :model do
       expect(Quote.filter('Jon')).to eq [jons_quote]
     end
   end
+
+  describe 'validation' do
+    before do
+      FactoryGirl.create(:quote, content: 'I drink and I know things.')
+    end
+
+    it 'validates uniqueness of quote content' do
+      quote = FactoryGirl.build(:quote, content: 'I drink and I know things.')
+      expect(quote.save).to eq false
+    end
+  end
 end
