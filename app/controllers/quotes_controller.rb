@@ -16,10 +16,12 @@ class QuotesController < ApplicationController
   end
 
   def create
-    quote = ApiClient.new.get_quote()
-    p quote
-    # quote = Quote.new(quote_params)
-    # render json: quote if quote.save
+    if params[:quote]
+      quote = Quote.new(quote_params)
+      render json: quote if quote.save
+    else
+      get_quote_from_api
+    end
   end
 
   private
@@ -27,4 +29,19 @@ class QuotesController < ApplicationController
   def quote_params
     params.require(:quote).permit(:content, :character)
   end
+
+  def get_quote_from_api
+    quote_data = ApiClient.new.get_quote()
+    quote = Quote.new(content: quote_data['quote'],
+                      character: quote_data['character'])
+    render json: quote if quote.save
+  end
+  # def parse_data(data)
+  #   {
+  #     'quote': {
+  #       'content': data['quote'],
+  #       'character': data['character']
+  #     }
+  #   }
+  # end
 end
