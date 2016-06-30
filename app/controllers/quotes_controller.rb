@@ -14,6 +14,9 @@ class QuotesController < ApplicationController
     # render json: quote
   end
 
+  def new
+  end
+
   def create
     quote = Quote.new(quote_params)
     render json: quote if quote.save
