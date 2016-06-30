@@ -8,8 +8,8 @@ describe 'ApiClient' do
   end
 
   it 'fetches a quote' do
-    apiClient = ApiClient.new
-    response = apiClient.getQuote
+    api_client = ApiClient.new
+    response = api_client.get_quote
     quote = {
       'quote': {
         'content': 'I drink and I know things.',

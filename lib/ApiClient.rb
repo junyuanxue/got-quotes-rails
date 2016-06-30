@@ -7,7 +7,7 @@ class ApiClient
   def initialize
   end
 
-  def getQuote()
+  def get_quote()
     response = self.class.get(BASE_URI + '/quotes')
     parse_data(response.parsed_response)
   end

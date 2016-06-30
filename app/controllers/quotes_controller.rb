@@ -16,7 +16,7 @@ class QuotesController < ApplicationController
   end
 
   def create
-    quote = ApiClient.new.getQuote()
+    quote = ApiClient.new.get_quote()
     p quote
     # quote = Quote.new(quote_params)
     # render json: quote if quote.save
