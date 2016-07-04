@@ -1,5 +1,7 @@
 class Quote < ActiveRecord::Base
-  validates :content, uniqueness: true
+  validates :content,   uniqueness: true,
+                        presence: true
+  validates :character, presence: true
 
   def self.filter(query)
     character = find_character(query)

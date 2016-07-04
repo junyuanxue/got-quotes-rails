@@ -32,5 +32,10 @@ describe Quote, type: :model do
       quote = FactoryGirl.build(:quote, content: nil)
       expect(quote.save).to eq false
     end
+
+    it 'valides the presence of character' do
+      quote = FactoryGirl.build(:quote, character: nil)
+      expect(quote.save).to eq false
+    end
   end
 end
