@@ -33,8 +33,18 @@ describe Quote, type: :model do
       expect(quote.save).to eq false
     end
 
+    it 'quote content cannot be blank' do
+      quote = FactoryGirl.build(:quote, content: ' ')
+      expect(quote.save).to eq false
+    end
+
     it 'valides the presence of character' do
       quote = FactoryGirl.build(:quote, character: nil)
+      expect(quote.save).to eq false
+    end
+
+    it 'character cannot be blank' do
+      quote = FactoryGirl.build(:quote, character: ' ')
       expect(quote.save).to eq false
     end
   end
