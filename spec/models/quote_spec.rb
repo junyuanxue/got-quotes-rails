@@ -27,5 +27,10 @@ describe Quote, type: :model do
       quote = FactoryGirl.build(:quote, content: 'I drink and I know things.')
       expect(quote.save).to eq false
     end
+
+    it 'validates the presence of quote content' do
+      quote = FactoryGirl.build(:quote, content: nil)
+      expect(quote.save).to eq false
+    end
   end
 end
