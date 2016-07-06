@@ -6,7 +6,8 @@ class Quote < ActiveRecord::Base
                         allow_blank: false
 
   def self.filter(query)
-    character = find_character(query)
+    characters = find_character(query)
+    character = characters.shuffle[0]
     Quote.where(character: character)
   end
 
@@ -14,7 +15,9 @@ class Quote < ActiveRecord::Base
 
   def self.find_character(query)
     characters = Quote.uniq.pluck(:character)
-    characters.each { |name| return name if matches?(name, query) }
+    names = []
+    characters.each { |name| names << name if matches?(name, query) }
+    names
   end
 
   def self.matches?(name, query)
